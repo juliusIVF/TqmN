@@ -52,11 +52,13 @@
         #initialImage {
             width: 200px;
             margin-bottom: 20px;
+            display: block; /* Make sure it's visible initially */
         }
         #newImage {
             display: none;
-            width: 200px;
-            margin-bottom: 20px;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensure it fills the background */
         }
         #loveMessage {
             color: yellow;
@@ -85,8 +87,8 @@
 
     <div class="container" id="dateContainer" style="display: none;">
         <h1>Cual es la fecha de mi cita favorita contigo</h1>
-        <img id="initialImage" src="initial-image.jpg" alt="Initial Image"> <!-- This is the first image -->
-        <img id="newImage" src="new-image.jpg" alt="New Image" style="display:none;"> <!-- This is the new background image -->
+        <img id="initialImage" src="initial-image.jpg" alt="Initial Image">
+        <div id="newImage" style="background-image: url('new-image.jpg');"></div> <!-- This is the new background image container -->
         <input type="date" id="dateInput">
         <button id="submitDate">Enviar</button>
         <p id="dateMessage" style="display: none;"></p>
@@ -142,7 +144,7 @@
                 dateMessage.style.display = 'block';
                 dateMessage.innerText = '¡Correcto! 💖';
                 initialImage.style.display = 'none'; // Hide the initial image
-                newImage.style.display = 'block'; // Show the new image
+                newImage.style.display = 'block'; // Show the new image container
                 dateContainer.style.display = 'none';
                 finalMessage.style.display = 'block';
             } else {
