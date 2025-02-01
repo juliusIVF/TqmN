@@ -32,8 +32,6 @@
             border: none;
             border-radius: 5px;
             font-family: 'Great Vibes', cursive;
-            display: inline-flex;
-            align-items: center;
         }
         #yes {
             background: green;
@@ -51,10 +49,14 @@
             right: 10px;
             width: 150px;
         }
-        img.icon {
-            width: 30px;
-            margin-right: 10px;
-            vertical-align: middle;
+        #initialImage {
+            width: 200px;
+            margin-bottom: 20px;
+        }
+        #newImage {
+            display: none;
+            width: 200px;
+            margin-bottom: 20px;
         }
         #loveMessage {
             color: yellow;
@@ -76,17 +78,15 @@
 <body>
     <div class="container" id="mainContainer">
         <h1 id="question">¿Quieres ser mi 14 de febrero y persona especial?</h1>
-        <button id="yes">
-            <img src="yes-icon.png" alt="Yes" class="icon">Sí
-        </button>
-        <button id="no">
-            <img src="no-icon.png" alt="No" class="icon">No
-        </button>
+        <button id="yes">Sí</button>
+        <button id="no">No</button>
     </div>
     <img id="meme" src="C20C91DC-6EE8-452B-BFD2-36B06D09D090.jpg" alt="Joker Meme">
 
     <div class="container" id="dateContainer" style="display: none;">
         <h1>Uno de mis citas favoritas contigo</h1>
+        <img id="initialImage" src="initial-image.jpg" alt="Initial Image">
+        <img id="newImage" src="new-image.jpg" alt="New Image">
         <input type="date" id="dateInput">
         <button id="submitDate">Enviar</button>
         <p id="dateMessage" style="display: none;"></p>
@@ -112,6 +112,8 @@
         const loveMessage = document.getElementById('loveMessage');
         const quote = document.getElementById('quote');
         const continueButton = document.getElementById('continueButton');
+        const initialImage = document.getElementById('initialImage');
+        const newImage = document.getElementById('newImage');
         let noClickCount = 0;
 
         noButton.addEventListener('mouseover', () => {
@@ -138,6 +140,8 @@
             if (dateInput.value === '2024-05-15') {
                 dateMessage.style.display = 'block';
                 dateMessage.innerText = '¡Correcto! 💖';
+                initialImage.style.display = 'none';
+                newImage.style.display = 'block'; // Show the new image
                 dateContainer.style.display = 'none';
                 finalMessage.style.display = 'block';
             } else {
