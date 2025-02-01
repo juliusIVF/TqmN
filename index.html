@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Be My Valentine?</title>
+    <title>¿Quieres ser mi 14 de febrero?</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
         
@@ -32,6 +32,8 @@
             border: none;
             border-radius: 5px;
             font-family: 'Great Vibes', cursive;
+            display: inline-flex;
+            align-items: center;
         }
         #yes {
             background: green;
@@ -49,21 +51,51 @@
             right: 10px;
             width: 150px;
         }
+        img.icon {
+            width: 30px;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+        #loveMessage {
+            color: yellow;
+            font-size: 20px;
+            margin-top: 20px;
+        }
+        #quote {
+            color: lightgray;
+            font-size: 18px;
+            margin-top: 10px;
+        }
+        #continueButton {
+            background: #FFD700;
+            color: black;
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
     <div class="container" id="mainContainer">
         <h1 id="question">¿Quieres ser mi 14 de febrero y persona especial?</h1>
-        <button id="yes">Yes</button>
-        <button id="no">No</button>
+        <button id="yes">
+            <img src="yes-icon.png" alt="Yes" class="icon">Sí
+        </button>
+        <button id="no">
+            <img src="no-icon.png" alt="No" class="icon">No
+        </button>
     </div>
     <img id="meme" src="C20C91DC-6EE8-452B-BFD2-36B06D09D090.jpg" alt="Joker Meme">
 
     <div class="container" id="dateContainer" style="display: none;">
         <h1>Uno de mis citas favoritas contigo</h1>
         <input type="date" id="dateInput">
-        <button id="submitDate">Submit</button>
-        <p id="dateMessage" style="display: none; color: yellow;"></p>
+        <button id="submitDate">Enviar</button>
+        <p id="dateMessage" style="display: none;"></p>
+    </div>
+
+    <div class="container" id="finalMessage" style="display: none;">
+        <p id="loveMessage">Te amaré por siempre 💖</p>
+        <p id="quote">It won’t be easy, it’s going to be really hard; we’re going to have to work at this every day. - Noah, *The Notebook*</p>
+        <button id="continueButton">Continuar</button>
     </div>
 
     <script>
@@ -76,6 +108,10 @@
         const dateInput = document.getElementById('dateInput');
         const dateMessage = document.getElementById('dateMessage');
         const question = document.getElementById('question');
+        const finalMessage = document.getElementById('finalMessage');
+        const loveMessage = document.getElementById('loveMessage');
+        const quote = document.getElementById('quote');
+        const continueButton = document.getElementById('continueButton');
         let noClickCount = 0;
 
         noButton.addEventListener('mouseover', () => {
@@ -101,11 +137,17 @@
         submitDate.addEventListener('click', () => {
             if (dateInput.value === '2024-05-15') {
                 dateMessage.style.display = 'block';
-                dateMessage.innerText = 'Correct! 💖';
+                dateMessage.innerText = '¡Correcto! 💖';
+                dateContainer.style.display = 'none';
+                finalMessage.style.display = 'block';
             } else {
                 dateMessage.style.display = 'block';
-                dateMessage.innerText = 'Nope, try again! 😜';
+                dateMessage.innerText = 'No, ¡intenta otra vez! 😜';
             }
+        });
+
+        continueButton.addEventListener('click', () => {
+            window.location.href = "https://www.youtube.com/watch?v=s0GL5u2EIh4";
         });
     </script>
 </body>
