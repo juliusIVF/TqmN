@@ -8,7 +8,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
         
         body {
-            background: url('IMG_1426.jpg') no-repeat center center/cover;
+            background: url('IMG_1426.jpg') no-repeat center center/cover; /* Initial background */
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -85,8 +85,8 @@
 
     <div class="container" id="dateContainer" style="display: none;">
         <h1>Cual es la fecha de mi cita favorita contigo</h1>
-        <img id="initialImage" src="initial-image.jpg" alt="Initial Image">
-        <img id="newImage" src="new-image.jpg" alt="New Image">
+        <img id="initialImage" src="initial-image.jpg" alt="Initial Image"> <!-- This is the first image -->
+        <img id="newImage" src="new-image.jpg" alt="New Image" style="display:none;"> <!-- This is the new background image -->
         <input type="date" id="dateInput">
         <button id="submitDate">Enviar</button>
         <p id="dateMessage" style="display: none;"></p>
@@ -134,13 +134,14 @@
         yesButton.addEventListener('click', () => {
             mainContainer.style.display = 'none';
             dateContainer.style.display = 'block';
+            document.body.style.backgroundImage = "url('new-image.jpg')"; // Change background to the new image
         });
 
         submitDate.addEventListener('click', () => {
             if (dateInput.value === '2024-05-15') {
                 dateMessage.style.display = 'block';
                 dateMessage.innerText = '¡Correcto! 💖';
-                initialImage.style.display = 'none';
+                initialImage.style.display = 'none'; // Hide the initial image
                 newImage.style.display = 'block'; // Show the new image
                 dateContainer.style.display = 'none';
                 finalMessage.style.display = 'block';
