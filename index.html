@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine?</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+        
+        body {
+            background: url('IMG_1426.jpg') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            font-family: 'Great Vibes', cursive;
+            color: white;
+            position: relative;
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 18px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            font-family: 'Great Vibes', cursive;
+        }
+        #yes {
+            background: green;
+            color: white;
+        }
+        #no {
+            background: red;
+            color: white;
+            position: absolute;
+        }
+        #meme {
+            display: none;
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            width: 150px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="mainContainer">
+        <h1 id="question">¿Quieres ser mi 14 de febrero y persona especial?</h1>
+        <button id="yes">Yes</button>
+        <button id="no">No</button>
+    </div>
+    <img id="meme" src="C20C91DC-6EE8-452B-BFD2-36B06D09D090.jpg" alt="Joker Meme">
+
+    <div class="container" id="dateContainer" style="display: none;">
+        <h1>Uno de mis citas favoritas contigo</h1>
+        <input type="date" id="dateInput">
+        <button id="submitDate">Submit</button>
+        <p id="dateMessage" style="display: none; color: yellow;"></p>
+    </div>
+
+    <script>
+        const noButton = document.getElementById('no');
+        const meme = document.getElementById('meme');
+        const yesButton = document.getElementById('yes');
+        const mainContainer = document.getElementById('mainContainer');
+        const dateContainer = document.getElementById('dateContainer');
+        const submitDate = document.getElementById('submitDate');
+        const dateInput = document.getElementById('dateInput');
+        const dateMessage = document.getElementById('dateMessage');
+        const question = document.getElementById('question');
+        let noClickCount = 0;
+
+        noButton.addEventListener('mouseover', () => {
+            const x = Math.random() * (window.innerWidth - 100);
+            const y = Math.random() * (window.innerHeight - 50);
+            noButton.style.left = `${x}px`;
+            noButton.style.top = `${y}px`;
+        });
+
+        noButton.addEventListener('click', () => {
+            noClickCount++;
+            if (noClickCount >= 3) {
+                question.innerText = "Tú VAS a ser mi 14 de febrero :)";
+                meme.style.display = 'block';
+            }
+        });
+
+        yesButton.addEventListener('click', () => {
+            mainContainer.style.display = 'none';
+            dateContainer.style.display = 'block';
+        });
+
+        submitDate.addEventListener('click', () => {
+            if (dateInput.value === '2024-05-15') {
+                dateMessage.style.display = 'block';
+                dateMessage.innerText = 'Correct! 💖';
+            } else {
+                dateMessage.style.display = 'block';
+                dateMessage.innerText = 'Nope, try again! 😜';
+            }
+        });
+    </script>
+</body>
+</html>
