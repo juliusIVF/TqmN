@@ -59,7 +59,6 @@
             width: 100%;
             height: 100%;
             object-fit: cover; /* Ensure it fills the background */
-            background-image: url('IMG_2629.jpeg'); /* Imagen actualizada */
         }
         #loveMessage {
             color: yellow;
@@ -87,9 +86,9 @@
     <img id="meme" src="C20C91DC-6EE8-452B-BFD2-36B06D09D090.jpg" alt="Joker Meme">
 
     <div class="container" id="dateContainer" style="display: none;">
-        <h1>¿Cuál es la fecha de mi cita favorita contigo?</h1>
+        <h1>Cual es la fecha de mi cita favorita contigo</h1>
         <img id="initialImage" src="initial-image.jpg" alt="Initial Image">
-        <div id="newImage" style="background-image: url('IMG_2629.jpeg');"></div> <!-- Imagen actualizada aquí también -->
+        <div id="newImage" style="background-image: url('IMG_ 2629.jpeg');"></div> <!-- This is the new background image container -->
         <input type="date" id="dateInput">
         <button id="submitDate">Enviar</button>
         <p id="dateMessage" style="display: none;"></p>
@@ -97,7 +96,7 @@
 
     <div class="container" id="finalMessage" style="display: none;">
         <p id="loveMessage">Te amaré por siempre 💖</p>
-        <p id="quote">It won’t be easy, it’s going to be really hard; we’re going to have to work at this every day. - Noah, *The Notebook*</p>
+        <p id="quote">It won’t be easy, it’s going to be really hard; we’re going to have to work at this every day. - Noah, -The Notebook*</p>
         <button id="continueButton">Continuar</button>
     </div>
 
@@ -128,7 +127,7 @@
 
         noButton.addEventListener('click', () => {
             noClickCount++;
-            if (noClickCount >= 3) {
+            if (noClickCount >= 1) {
                 question.innerText = "Tú VAS a ser mi 14 de febrero :)";
                 meme.style.display = 'block';
             }
@@ -137,20 +136,20 @@
         yesButton.addEventListener('click', () => {
             mainContainer.style.display = 'none';
             dateContainer.style.display = 'block';
-            document.body.style.backgroundImage = "url('initial-image.jpg')"; // Fondo original se mantiene
+            document.body.style.backgroundImage = "url('new-image.jpg')"; // Change background to the new image
         });
 
         submitDate.addEventListener('click', () => {
             if (dateInput.value === '2024-05-15') {
                 dateMessage.style.display = 'block';
                 dateMessage.innerText = '¡Correcto! 💖';
-                initialImage.style.display = 'none'; // Ocultar la imagen inicial
-                newImage.style.display = 'block';    // Mostrar la nueva imagen
+                initialImage.style.display = 'none'; // Hide the initial image
+                newImage.style.display = 'block'; // Show the new image container
                 dateContainer.style.display = 'none';
                 finalMessage.style.display = 'block';
             } else {
                 dateMessage.style.display = 'block';
-                dateMessage.innerText = 'No, ¡intenta otra vez! 😜';
+                dateMessage.innerText = 'No, ¡intenta otra vez! 😜 la playaaa';
             }
         });
 
