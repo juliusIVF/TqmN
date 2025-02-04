@@ -54,7 +54,7 @@
             margin-bottom: 20px;
             display: block; /* Make sure it's visible initially */
         }
-        #IMG_2628.jpeg {
+        #newImage {
             display: none;
             width: 100%;
             height: 100%;
@@ -88,7 +88,7 @@
     <div class="container" id="dateContainer" style="display: none;">
         <h1>Cual es la fecha de mi cita favorita contigo</h1>
         <img id="initialImage" src="initial-image.jpg" alt="Initial Image">
-        <div id="IMG_2628.jpeg" style="background-image: url('IMG_ 2628.jpeg');"></div> <!-- This is the new background image container -->
+        <div id="newImage" style="background-image: url('new-image.jpg');"></div> <!-- This is the new background image container -->
         <input type="date" id="dateInput">
         <button id="submitDate">Enviar</button>
         <p id="dateMessage" style="display: none;"></p>
@@ -115,7 +115,7 @@
         const quote = document.getElementById('quote');
         const continueButton = document.getElementById('continueButton');
         const initialImage = document.getElementById('initialImage');
-        const IMG_2629.jpeg = document.getElementById('IMG_2629.jpeg');
+        const newImage = document.getElementById('newImage');
         let noClickCount = 0;
 
         noButton.addEventListener('mouseover', () => {
@@ -127,7 +127,7 @@
 
         noButton.addEventListener('click', () => {
             noClickCount++;
-            if (noClickCount >= 1) {
+            if (noClickCount >= 3) {
                 question.innerText = "Tú VAS a ser mi 14 de febrero :)";
                 meme.style.display = 'block';
             }
@@ -149,7 +149,7 @@
                 finalMessage.style.display = 'block';
             } else {
                 dateMessage.style.display = 'block';
-                dateMessage.innerText = 'No, ¡intenta otra vez! 😜 la playaaa';
+                dateMessage.innerText = 'No, ¡intenta otra vez! 😜';
             }
         });
 
