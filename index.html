@@ -8,7 +8,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
         
         body {
-            background: url('initial-image.jpg') no-repeat center center/cover; /* Fondo original que se mantiene */
+            background: url('initial-image.jpg') no-repeat center center/cover; /* Ensure initial background image */
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -52,14 +52,14 @@
         #initialImage {
             width: 200px;
             margin-bottom: 20px;
-            display: block;
+            display: block; /* Make sure it's visible initially */
         }
         #newImage {
             display: none;
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            background-image: url('IMG_2629.jpeg'); /* Nueva imagen actualizada */
+            object-fit: cover; /* Ensure it fills the background */
+            background-image: url('IMG_2629.jpeg'); /* Imagen actualizada */
         }
         #loveMessage {
             color: yellow;
@@ -88,8 +88,8 @@
 
     <div class="container" id="dateContainer" style="display: none;">
         <h1>¿Cuál es la fecha de mi cita favorita contigo?</h1>
-        <img id="initialImage" src="initial-image.jpg" alt="Imagen inicial"> 
-        <div id="newImage"></div> <!-- Imagen nueva actualizada -->
+        <img id="initialImage" src="initial-image.jpg" alt="Initial Image">
+        <div id="newImage" style="background-image: url('IMG_2629.jpeg');"></div> <!-- Imagen actualizada aquí también -->
         <input type="date" id="dateInput">
         <button id="submitDate">Enviar</button>
         <p id="dateMessage" style="display: none;"></p>
@@ -137,15 +137,15 @@
         yesButton.addEventListener('click', () => {
             mainContainer.style.display = 'none';
             dateContainer.style.display = 'block';
-            // No se cambia el fondo del body
+            document.body.style.backgroundImage = "url('initial-image.jpg')"; // Fondo original se mantiene
         });
 
         submitDate.addEventListener('click', () => {
             if (dateInput.value === '2024-05-15') {
                 dateMessage.style.display = 'block';
                 dateMessage.innerText = '¡Correcto! 💖';
-                initialImage.style.display = 'none';
-                newImage.style.display = 'block';
+                initialImage.style.display = 'none'; // Ocultar la imagen inicial
+                newImage.style.display = 'block';    // Mostrar la nueva imagen
                 dateContainer.style.display = 'none';
                 finalMessage.style.display = 'block';
             } else {
