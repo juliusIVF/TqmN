@@ -8,7 +8,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
         
         body {
-            background: url('initial-image.jpg') no-repeat center center/cover; /* Ensure initial background image */
+            background: url('IMG_2629.jpeg') no-repeat center center/cover; /* Imagen de fondo actualizada */
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -52,13 +52,14 @@
         #initialImage {
             width: 200px;
             margin-bottom: 20px;
-            display: block; /* Make sure it's visible initially */
+            display: block;
         }
         #newImage {
             display: none;
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Ensure it fills the background */
+            object-fit: cover;
+            background-image: url('IMG_2629.jpeg'); /* Imagen nueva actualizada */
         }
         #loveMessage {
             color: yellow;
@@ -86,9 +87,9 @@
     <img id="meme" src="C20C91DC-6EE8-452B-BFD2-36B06D09D090.jpg" alt="Joker Meme">
 
     <div class="container" id="dateContainer" style="display: none;">
-        <h1>Cual es la fecha de mi cita favorita contigo</h1>
-        <img id="initialImage" src="initial-image.jpg" alt="Initial Image">
-        <div id="newImage" style="background-image: url('new-image.jpg');"></div> <!-- This is the new background image container -->
+        <h1>¿Cuál es la fecha de mi cita favorita contigo?</h1>
+        <img id="initialImage" src="IMG_2629.jpeg" alt="Imagen inicial"> <!-- Imagen inicial actualizada -->
+        <div id="newImage"></div> <!-- La imagen de fondo ya está configurada en CSS -->
         <input type="date" id="dateInput">
         <button id="submitDate">Enviar</button>
         <p id="dateMessage" style="display: none;"></p>
@@ -96,7 +97,7 @@
 
     <div class="container" id="finalMessage" style="display: none;">
         <p id="loveMessage">Te amaré por siempre 💖</p>
-        <p id="quote">It won’t be easy, it’s going to be really hard; we’re going to have to work at this every day. - Noah, -The Notebook*</p>
+        <p id="quote">It won’t be easy, it’s going to be really hard; we’re going to have to work at this every day. - Noah, *The Notebook*</p>
         <button id="continueButton">Continuar</button>
     </div>
 
@@ -136,15 +137,15 @@
         yesButton.addEventListener('click', () => {
             mainContainer.style.display = 'none';
             dateContainer.style.display = 'block';
-            document.body.style.backgroundImage = "url('new-image.jpg')"; // Change background to the new image
+            document.body.style.backgroundImage = "url('IMG_2629.jpeg')"; // Fondo actualizado al hacer clic en "Sí"
         });
 
         submitDate.addEventListener('click', () => {
             if (dateInput.value === '2024-05-15') {
                 dateMessage.style.display = 'block';
                 dateMessage.innerText = '¡Correcto! 💖';
-                initialImage.style.display = 'none'; // Hide the initial image
-                newImage.style.display = 'block'; // Show the new image container
+                initialImage.style.display = 'none';
+                newImage.style.display = 'block';
                 dateContainer.style.display = 'none';
                 finalMessage.style.display = 'block';
             } else {
